@@ -1,79 +1,91 @@
-Catalan Numbers
-Ensof Barhami
-
-“Catalan numbers are the subject of [much] interest (sometimes known as Catalan disease)”
-~ Christian Aebi & Grant Cairns
-
-Pernahkah mendengar istilah Bilangan Catalan atau Baris Catalan ? Bilangan Catalan memang bukan hal asing dalam dunia matematika. Bilangan ini juga banyak dikenal di dunia computer science (sangat berhubungan erat dengan triangulation problem atau salah satu persoalan graf di bidang computer science) . Bilangan ini sering kali muncul pada permasalahan-permasalahan enumerasi.
-Sejarah
-Bilangan-bilangan Catalan terlihat sangat istimewa karena muncul di berbagai persoalan yang berbeda dengan solusi penyelesaian yang berbeda pula, namun memiliki solusi yang sama, yaitu bilangan-bilangan pada baris Catalan.
-Seperti baris lain dalam dunia matematika, baris Catalan juga memiliki definisi. Uniknya, baris ini memiliki banyak sekali definisi dari banyak ahli matematika selama 200 tahun terakhir. Nama Catalan diambil dari nama seorang matematikawan asal Belgia, Eugene Charles Catalan yang mendefinisikan barisan ini pada tahun 1844 sebagai berikut.
-
-
-Sehingga didapat barisan : 1, 1, 2, 5, 14, 42, 132, 429, 1430, ....
-Sebenarnya, barisan ini sudah dikenal sejak tahun 1751 oleh Leonhard Euler. Euler menulis surat kepada salah satu sahabatnya yaitu Goldbach yang isinya adalah barisan yang kita kenal sekarang sebagai barisan Catalan. Didalam surat tersebut Euler mendefinisikan barisan bilangan Cn sebagai banyaknya triangulation dari (n+2)-gon (banyaknya cara membagi poligon menjadi segitiga-segitiga), di dalam surat tersebut ia juga menulis 8 bilangan pertama dari barisan ini yang dihitung secara manual olehnya. Pada awalnya, Euler memprediksi bilangan Cn ini sebagai :
-C_(n-2) = (2 .6 .10 ...  (4n - 10))/(2 .  3 .  4 … (n-1))   . Contoh untuk C_4 = (2.6.10.14) / (2.3.4.5) = 14.
-Goldbach membalas surat dari Euler dengan memberikan persamaan kuadrat yang bisa digunakan untuk menurunkan bilangan-bilangan catalan. Sejak saat itulah mereka membahas tentang bilangan ini, namun tidak langsung bisa mereka buktikan kebenaran dari formula yang ditulis Euler.
-Selain Goldbach, terdapat juga tokoh yang semasa dengan Euler yaitu Johann Andreas von Segner yang berperan atas berkembangnya bilangan Catalan ini. Pada tahun 1750-an, Euler menceritakan tentang persoalan triangulation tadi kepada Segner namun tidak mengusulkan rumus yang dibuatnya kepada Segner. Euler “menantang” Segner untuk memecahkan persoalan ini secara matematis.
-Pada tahun 1758, Segner menulis makalah yang sekaligus menjawab tantangan dari Euler. Ia menghasilkan relasi rekurens dengan pembuktian secara kombinatorik untuk mengenerate bilangan catalan sebagai berikut. 
-C_(n+1) = C_0 C_n + C_1 C_(n-1) + ... + C_n C_0
-Dengan formula ini, Segner dapat menentukan bilangan Catalan untuk n ≤ 18. Namun, ternyata ditemukan kesalahan pada C_13 dengan metode yang digunakan Segner.
-	Setelah publikasi makalah oleh Segner, Euler menyadari bahwa tulisan Segner adalah “missing piece” yang dapat digunakan untuk memecahkan persoalan triangulation n-gon yang sedang menjadi fokusnya. Euler lalu menemukan letak kesalahan Segner dan pada akhirnya dapat menemukan bilangan Catalan sampai n ≤ 23. Menariknya, kombinasi dari hasil pikiran Euler, Goldbach, dan Segner pada akhirnya dapat membuktikan kebenaran formula yang diajukan Euler. Namun, pembuktian secara lengkap baru dipublikasi 80 tahun kemudian.
-	Selain keempat orang diatas (Euler, Goldbach, Segner, dan tentu saja E.C Catalan) terdapat beberapa orang lagi yang berkontribusi untuk mengembangkan studi tentang barisan ini, antara lain Kotelnikov (menemukan pendekatan lain untuk membuktikan formula dari Euler), Fuss (mengenalkan apa yang sekarang kita kenal dengan Fuss-Catalan Numbers), Liouville (menggunakan Lagrange Inversion sebagai pembuktian), dan Gabriel Lame sampai pada akhirnya E.C Catalan terinspirasi dari tulisan Gabriel Lame dan merumuskan formula standar untuk bilangan Catalan seperti yang kita kenal sekarang. E.C Catalan jugalah yang menyadari bahwa persoalan triangulation ini ekivalen dengan persoalan bracket problem.
-	Bilangan ini melewati perjalanan yang cukup panjang dalam perkembangannya. Pada literatur lama, kita tidak akan menemukan istilah “Catalan Numbers” tetapi Euler-Segners Numbers karena memang merekalah yang pertama mendiskusikan tentang bilangan ini. Berbagai teori tentang asal nama barisan ini pun kemudian bermunculan, namun pendapat yang paling kuat adalah nama “Catalan Numbers” ini mulai populer karena pada tahun 1968 seorang ahli kombinatorik asal Amerika menggunakan istilah ini di dalam bukunya, Combinatorial Identities sekaligus menjadi tulisan pertama yang menggunakan istilah “Catalan Numbers” untuk barisan yang sedang kita bahas.
-
-Aplikasi
-Selain sejarahnya yang menarik, tentu saja barisan ini sendiri juga sangat menarik. Banyak sekali persoalan matematis yang banyak dikenal di dunia computer science saat ini yang mengandung Catalan Numbers. Berikut beberapa persoalan tersebut.
-	Triangulation in polygon
-Banyaknya triangulation yang dapat dibentuk dari sebuah poligon konvex dengan n+2 sisi adalah bilangan catalan ke-n 
-Misal untuk n = 4, sisi poligon = 6, C_4=14
- 
-Triangulation digunakan di banyak bidang computer science salah satunya pada Art Gallery Problem. Dapat dilihat di makalah yang saya tulis di bit.ly/artgallerypaper
-	Bracket Problem
-Banyaknya ekspresi valid menggunakan n pasang tanda kurung adalah bilangan catalan ke-n (C_n).
-Misal untuk n = 3, C_3=5
-((())), ()(()), ()()(), (())(), (()())
-
-	Dyck Words
-Banyaknya Dyck words sepanjang 2n adalah bilangan catalan ke-n. Dyck words adalah string yang mengandung n-buah X dan n-buah Y sehingga tidak ada segmen awal dari string tersebut yang mengandung lebih banyak Y daripada X. Misal Dyck words valid dengan panjang 6 adalah : XXXYYY     XYXXYY     XYXYXY     XXYYXY     XXYXYY.
-
-	Mountain Range
-Banyaknya “pegunungan” dengan n-buah naikan dan n-buah turunan adalah bilangan catalan ke-n. Persoalana ini sama seperti persoalan Dyck Words.
-
- 
-
-	Noncrossing chords (Hands across a table)
-Banyaknya jenis “salaman” dari 2n orang di meja bundar sedemikian hingga tidak ada tangan yang saling berpotongan.
-
- 
-Banyaknya salaman valid dengan n=4 adalah C_4=14
-
-	Binary Trees
-Banyaknya pohon biner yang memiliki n-buah internal node(s) adalah C_n.
-Misal untuk n = 3, C_3=5
-
- 
-	Skew Polyominos
-Banyaknya kumpulan petak yang membentuk suatu bentuk 2D dan memiliki keliling 2n+2 adalah C_n.
- 
-
-	Multiplication Orderings
-Banyaknya susunan perkalian dengan n+1 bilangan adalah C_n.
-
- 
-
-
-Hal unik lain :
-
- 
-Misal kita memiliki suatu titik R, Q dan P pada lingkaran dengan radius r seperti gambar diatas. OR = r , RP = 1 satuan , OQ = √(r^2-1). Panjang QP = r – OQ = r -  √(r^2-1). 
-	Jika r = 5 QP = 0.10102051443364380..... Terlihat bilangan Catalan yang dipisahkan angka 0. 1,1,2,5,14.
-	Jika r sangat besar, misal r = 5.000.000. QP = 0.00000010000000000000100000000000002000000000000050000000000001400000 00000004200000000000132000000000004290000000000143000000000004862000 00000016796000000000587860000000020801200000000742900000000026744400 00000096948450000003535767000000129644790000004776387000000176726319 00000656412042000024466267020000914825636400034305961365001289904147 32404861946401452183673530721526953355091600663747951750370022422166... Maka terlihat lebih banyak bilangan Catalan yang dipisahkan angka 0.
-
-Referensi
-	Makalah “Catalan Numbers” oleh Tom Davis, 2016
-	Makalah “Coding Object Related to Catalan Numbers” oleh Antal Bege & Zoltan Kasa, 2001
-	Makalah “History of Catalan Numbers” oleh Igor Pak UCLA, 2014
-	Makalah “Mencari Solusi Persamaan Rekursif Bilangan Catalan dengan Prinsip-prinsip Kombinatorial” oleh Ahmad Zaky, 2013.
-	https://www.geeksforgeeks.org/applications-of-catalan-numbers/
-
+<p>Catalan Numbers</p>
+<p>Ensof Barhami</p>
+<p>&nbsp;</p>
+<p>&ldquo;<em>Catalan numbers are the subject of [much] interest (sometimes known as Catalan disease)</em>&rdquo;</p>
+<p>~ Christian Aebi &amp; Grant Cairns</p>
+<p>&nbsp;</p>
+<p>Pernahkah mendengar istilah Bilangan Catalan atau Baris Catalan ? Bilangan Catalan memang bukan hal asing dalam dunia matematika. Bilangan ini juga banyak dikenal di dunia <em>computer science </em>(sangat berhubungan erat dengan <em>triangulation problem</em> atau salah satu persoalan graf di bidang <em>computer science)</em> <em>. </em>Bilangan ini sering kali muncul pada permasalahan-permasalahan enumerasi.</p>
+<p><strong>Sejarah</strong></p>
+<p>Bilangan-bilangan Catalan terlihat sangat istimewa karena muncul di berbagai persoalan yang berbeda dengan solusi penyelesaian yang berbeda pula, namun memiliki solusi yang sama, yaitu bilangan-bilangan pada baris Catalan.</p>
+<p>Seperti baris lain dalam dunia matematika, baris Catalan juga memiliki definisi. Uniknya, baris ini memiliki banyak sekali definisi dari banyak ahli matematika selama 200 tahun terakhir. Nama Catalan diambil dari nama seorang matematikawan asal Belgia, Eugene Charles Catalan yang mendefinisikan barisan ini pada tahun 1844 sebagai berikut.</p>
+<p>&nbsp;</p>
+<p>Sehingga didapat barisan : 1, 1, 2, 5, 14, 42, 132, 429, 1430, ....</p>
+<p>Sebenarnya, barisan ini sudah dikenal sejak tahun 1751 oleh Leonhard Euler. Euler menulis surat kepada salah satu sahabatnya yaitu Goldbach yang isinya adalah barisan yang kita kenal sekarang sebagai barisan Catalan. Didalam surat tersebut Euler mendefinisikan barisan bilangan Cn sebagai banyaknya <em>triangulation</em> dari (n+2)-gon (banyaknya cara membagi poligon menjadi segitiga-segitiga), di dalam surat tersebut ia juga menulis 8 bilangan pertama dari barisan ini yang dihitung secara manual olehnya. Pada awalnya, Euler memprediksi bilangan Cn ini sebagai :</p>
+<p>&nbsp;= &nbsp;&nbsp; . Contoh untuk &nbsp;= (2.6.10.14) / (2.3.4.5) = 14.</p>
+<p>Goldbach membalas surat dari Euler dengan memberikan persamaan kuadrat yang bisa digunakan untuk menurunkan bilangan-bilangan catalan. Sejak saat itulah mereka membahas tentang bilangan ini, namun tidak langsung bisa mereka buktikan kebenaran dari formula yang ditulis Euler.</p>
+<p>Selain Goldbach, terdapat juga tokoh yang semasa dengan Euler yaitu Johann Andreas von Segner yang berperan atas berkembangnya bilangan Catalan ini. Pada tahun 1750-an, Euler menceritakan tentang persoalan <em>triangulation</em> tadi kepada Segner namun tidak mengusulkan rumus yang dibuatnya kepada Segner. Euler &ldquo;menantang&rdquo; Segner untuk memecahkan persoalan ini secara matematis.</p>
+<p>Pada tahun 1758, Segner menulis makalah yang sekaligus menjawab tantangan dari Euler. Ia menghasilkan relasi rekurens dengan pembuktian secara kombinatorik untuk mengenerate bilangan catalan sebagai berikut.</p>
+<p>&nbsp;= &nbsp;+ &nbsp;+ ... +</p>
+<p>Dengan formula ini, Segner dapat menentukan bilangan Catalan untuk n &le; 18. Namun, ternyata ditemukan kesalahan pada &nbsp;dengan metode yang digunakan Segner.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Setelah publikasi makalah oleh Segner, Euler menyadari bahwa tulisan Segner adalah &ldquo;<em>missing piece</em>&rdquo; yang dapat digunakan untuk memecahkan persoalan <em>triangulation </em>n-gon yang sedang menjadi fokusnya. Euler lalu menemukan letak kesalahan Segner dan pada akhirnya dapat menemukan bilangan Catalan sampai n &le; 23. Menariknya, kombinasi dari hasil pikiran Euler, Goldbach, dan Segner pada akhirnya dapat membuktikan kebenaran formula yang diajukan Euler. Namun, pembuktian secara lengkap baru dipublikasi 80 tahun kemudian.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Selain keempat orang diatas (Euler, Goldbach, Segner, dan tentu saja E.C Catalan) terdapat beberapa orang lagi yang berkontribusi untuk mengembangkan studi tentang barisan ini, antara lain Kotelnikov (menemukan pendekatan lain untuk membuktikan formula dari Euler), Fuss (mengenalkan apa yang sekarang kita kenal dengan <em>Fuss-Catalan Numbers</em>), Liouville (menggunakan <em>Lagrange Inversion</em> sebagai pembuktian), dan Gabriel Lame sampai pada akhirnya E.C Catalan terinspirasi dari tulisan Gabriel Lame dan merumuskan formula standar untuk bilangan Catalan seperti yang kita kenal sekarang. E.C Catalan jugalah yang menyadari bahwa persoalan <em>triangulation</em> ini ekivalen dengan persoalan <em>bracket problem</em>.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bilangan ini melewati perjalanan yang cukup panjang dalam perkembangannya. Pada literatur lama, kita tidak akan menemukan istilah &ldquo;Catalan Numbers&rdquo; tetapi <em>Euler-Segners</em> <em>Numbers</em> karena memang merekalah yang pertama mendiskusikan tentang bilangan ini. Berbagai teori tentang asal nama barisan ini pun kemudian bermunculan, namun pendapat yang paling kuat adalah nama &ldquo;Catalan Numbers&rdquo; ini mulai populer karena pada tahun 1968 seorang ahli kombinatorik asal Amerika menggunakan istilah ini di dalam bukunya, <em>Combinatorial Identities</em> sekaligus menjadi tulisan pertama yang menggunakan istilah &ldquo;Catalan Numbers&rdquo; untuk barisan yang sedang kita bahas.</p>
+<p>&nbsp;</p>
+<p><strong>Aplikasi</strong></p>
+<p>Selain sejarahnya yang menarik, tentu saja barisan ini sendiri juga sangat menarik. Banyak sekali persoalan matematis yang banyak dikenal di dunia <em>computer science </em>saat ini yang mengandung <em>Catalan Numbers</em>. Berikut beberapa persoalan tersebut.</p>
+<ol>
+<li><em>Triangulation in polygon</em></li>
+</ol>
+<p>Banyaknya <em>triangulation</em> yang dapat dibentuk dari sebuah poligon konvex dengan n+2 sisi adalah bilangan catalan ke-n</p>
+<p>Misal untuk n = 4, sisi poligon = 6,</p>
+<p><em>Triangulation </em>digunakan di banyak bidang <em>computer science</em> salah satunya pada <em>Art Gallery Problem. </em>Dapat dilihat di makalah yang saya tulis di bit.ly/artgallerypaper</p>
+<ol start="2">
+<li><em>Bracket Problem</em></li>
+</ol>
+<p>Banyaknya ekspresi valid menggunakan n pasang tanda kurung adalah bilangan catalan ke-n ().</p>
+<p>Misal untuk n = 3,</p>
+<p>((())), ()(()), ()()(), (())(), (()())</p>
+<p>&nbsp;</p>
+<ol start="3">
+<li><em>Dyck Words</em></li>
+</ol>
+<p>Banyaknya <em>Dyck words</em> sepanjang 2n adalah bilangan catalan ke-n. <em>Dyck words </em>adalah string yang mengandung n-buah X dan n-buah Y sehingga tidak ada segmen awal dari string tersebut yang mengandung lebih banyak Y daripada X. Misal <em>Dyck words </em>valid dengan panjang 6 adalah : XXXYYY &nbsp;&nbsp;&nbsp; XYXXYY &nbsp;&nbsp;&nbsp; XYXYXY &nbsp;&nbsp;&nbsp; XXYYXY &nbsp;&nbsp;&nbsp; XXYXYY.</p>
+<p>&nbsp;</p>
+<ol start="4">
+<li><em>Mountain Range</em></li>
+</ol>
+<p>Banyaknya &ldquo;pegunungan&rdquo; dengan n-buah naikan dan n-buah turunan adalah bilangan catalan ke-n. Persoalana ini sama seperti persoalan Dyck Words.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ol start="5">
+<li><em>Noncrossing chords (Hands across a table)</em></li>
+</ol>
+<p>Banyaknya jenis &ldquo;salaman&rdquo; dari 2n orang di meja bundar sedemikian hingga tidak ada tangan yang saling berpotongan.</p>
+<p>&nbsp;</p>
+<p>Banyaknya salaman valid dengan n=4 adalah</p>
+<p>&nbsp;</p>
+<ol start="6">
+<li><em>Binary Trees</em></li>
+</ol>
+<p>Banyaknya pohon biner yang memiliki n-buah <em>internal node(s)</em> adalah .</p>
+<p>Misal untuk n = 3,</p>
+<p>&nbsp;</p>
+<ol start="7">
+<li><em>Skew Polyominos</em></li>
+</ol>
+<p>Banyaknya kumpulan petak yang membentuk suatu bentuk 2D dan memiliki keliling 2n+2 adalah</p>
+<p>&nbsp;</p>
+<ol start="8">
+<li><em>Multiplication Orderings</em></li>
+</ol>
+<p>Banyaknya susunan perkalian dengan n+1 bilangan adalah</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Hal unik lain :</p>
+<p>&nbsp;<img src="C:\Users\LENOVO\Desktop\itb\Lain-lain\circle.png" alt="" /></p>
+<p>Misal kita memiliki suatu titik R, Q dan P pada lingkaran dengan radius r seperti gambar diatas. OR = r , RP = 1 satuan , OQ = . Panjang QP = r &ndash; OQ = r -&nbsp; .</p>
+<ul>
+<li>Jika r = 5 QP = 0.10102051443364380..... Terlihat bilangan Catalan yang dipisahkan angka 0. 1,1,2,5,14.</li>
+<li>Jika r sangat besar, misal r = 5.000.000. QP = 0.00000010000000000000100000000000002000000000000050000000000001400000 00000004200000000000132000000000004290000000000143000000000004862000 00000016796000000000587860000000020801200000000742900000000026744400 00000096948450000003535767000000129644790000004776387000000176726319 00000656412042000024466267020000914825636400034305961365001289904147 32404861946401452183673530721526953355091600663747951750370022422166... Maka terlihat lebih banyak bilangan Catalan yang dipisahkan angka 0.</li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>Referensi</strong></p>
+<ul>
+<li>Makalah &ldquo;Catalan Numbers&rdquo; oleh Tom Davis, 2016</li>
+<li>Makalah &ldquo;Coding Object Related to Catalan Numbers&rdquo; oleh Antal Bege &amp; Zoltan Kasa, 2001</li>
+<li>Makalah &ldquo;History of Catalan Numbers&rdquo; oleh Igor Pak UCLA, 2014</li>
+<li>Makalah &ldquo;Mencari Solusi Persamaan Rekursif Bilangan Catalan dengan Prinsip-prinsip Kombinatorial&rdquo; oleh Ahmad Zaky, 2013.</li>
+<li><a href="https://www.geeksforgeeks.org/applications-of-catalan-numbers/">https://www.geeksforgeeks.org/applications-of-catalan-numbers/</a></li>
+</ul>
+<p>&nbsp;</p>
